@@ -15,7 +15,7 @@ public class Players {
     }
 
     public Player getPlayer(String playerId) {
-        return players.stream().filter(p -> p.playerId.equals(playerId)).findAny().orElse(null);
+        return players.stream().filter(p -> p.id.equals(playerId)).findAny().orElse(null);
     }
 
 }

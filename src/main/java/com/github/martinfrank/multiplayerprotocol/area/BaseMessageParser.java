@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class BaseMessageParser implements MessageParser{
+public class BaseMessageParser implements MessageParser {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(BaseMessageParser.class);
 
@@ -18,6 +18,16 @@ public class BaseMessageParser implements MessageParser{
             if (contentClass.equals(Monsters.class)) {
                 Monsters monsters = (Monsters) content;
                 handleMonsters(monsters);
+                return;
+            }
+            if (contentClass.equals(Monster.class)) {
+                Monster monster = (Monster) content;
+                handleMonster(monster);
+                return;
+            }
+            if (contentClass.equals(Player.class)) {
+                Player player = (Player) content;
+                handlePlayer(player);
                 return;
             }
             if (contentClass.equals(MapChanges.class)) {
@@ -35,16 +45,24 @@ public class BaseMessageParser implements MessageParser{
                 handlePlayerMovementRequest(playerMovementRequest);
                 return;
             }
+            if (contentClass.equals(AreaTotal.class)) {
+                AreaTotal areaTotal = (AreaTotal) content;
+                handleAreaTotal(areaTotal);
+                return;
+            }
             LOGGER.warn("no parser for {} ", contentClass);
         } catch (ClassNotFoundException | JsonProcessingException e) {
             e.printStackTrace();
         }
     }
 
-    protected void handlePlayerMovementRequest(PlayerMovementRequest playerMovementRequest) {
+    public void handleAreaTotal(AreaTotal areaTotal) {
     }
 
-    protected void handlePlayerRegistration(PlayerRegistration playerRegistration) {
+    public void handlePlayerMovementRequest(PlayerMovementRequest playerMovementRequest) {
+    }
+
+    public void handlePlayerRegistration(PlayerRegistration playerRegistration) {
 
     }
 
@@ -52,8 +70,19 @@ public class BaseMessageParser implements MessageParser{
 
     }
 
+    //wurde durch AreaTotal ersetzt
+    @Deprecated
     public void handleMonsters(Monsters monsters){
 
     }
+
+    public void handleMonster(Monster monster){
+
+    }
+
+    public void handlePlayer(Player player){
+
+    }
+
 
 }

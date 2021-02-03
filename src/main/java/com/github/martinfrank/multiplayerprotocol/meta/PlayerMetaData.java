@@ -5,13 +5,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class PlayerMetaData {
 
     @JsonProperty
-    private String userId;
+    public String userId;
 
     @JsonProperty
-    private String userName;
+    public String userName;
 
     @JsonProperty
-    private String playerAreaId;
+    public String playerAreaId;
 
 
     public PlayerMetaData(){
@@ -24,17 +24,6 @@ public class PlayerMetaData {
         this.playerAreaId = playerAreaId;
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getPlayerAreaId() {
-        return playerAreaId;
-    }
 
     @Override
     public String toString() {

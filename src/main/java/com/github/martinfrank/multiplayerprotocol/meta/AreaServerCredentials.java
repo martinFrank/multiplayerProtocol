@@ -5,34 +5,33 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AreaServerCredentials {
 
     @JsonProperty
-    private String areaId;
+    public String areaId;
 
     @JsonProperty
-    private String user;
+    public String user;
 
     @JsonProperty
-    private String pass;
+    public String pass;
+
+    @JsonProperty
+    public String playerId;
 
     public AreaServerCredentials(){
         // Jackson deserialization
     }
 
-    public AreaServerCredentials(String areaId, String user, String pass) {
+    public AreaServerCredentials(String areaId, String user, String pass, String playerId) {
         this.areaId = areaId;
         this.user = user;
         this.pass = pass;
+        this.playerId = playerId;
     }
 
-    public String getAreaId() {
-        return areaId;
-    }
-
-    public String getPass() {
-        return pass;
-    }
-
-    public String getUser() {
-        return user;
+    public AreaServerCredentials(AreaServerCredentials areaServerCredentials, String playerId) {
+        this.areaId = areaServerCredentials.areaId;
+        this.user = areaServerCredentials.user;
+        this.pass = areaServerCredentials.pass;
+        this.playerId = playerId;
     }
 
     @Override
@@ -41,6 +40,7 @@ public class AreaServerCredentials {
                 "areaId='" + areaId + '\'' +
                 ", user='" + user + '\'' +
                 ", pass='" + pass + '\'' +
+                ", playerId='" + playerId + '\'' +
                 '}';
     }
 }

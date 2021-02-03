@@ -2,7 +2,7 @@ package com.github.martinfrank.multiplayerprotocol.area;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class MonsterMovement {
+public class PlayerMovement {
 
     @JsonProperty
     public String id;
@@ -13,12 +13,12 @@ public class MonsterMovement {
     @JsonProperty
     public Position to;
 
-    public MonsterMovement() {
+    public PlayerMovement() {
         // Jackson deserialization
     }
 
     //FIXME uuid for subject
-    public MonsterMovement(String id, Position from, Position to) {
+    public PlayerMovement(String id, Position from, Position to) {
         this.id = id;
         this.from = from;
         this.to = to;
@@ -26,8 +26,8 @@ public class MonsterMovement {
 
     @Override
     public String toString() {
-        return "MonsterMovement{" +
-                "entityId=" + id +
+        return "PlayerMovement{" +
+                "id=" + id +
                 ", from=" + from +
                 ", to=" + to +
                 '}';

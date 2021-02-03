@@ -2,15 +2,13 @@ package com.github.martinfrank.multiplayerprotocol.area;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.UUID;
-
 public class Monster {
 
     @JsonProperty
-    public String monsterTypeId;
+    public String typeId;
 
     @JsonProperty
-    public String entityId;
+    public String id;
 
     @JsonProperty
     public Position position;
@@ -19,17 +17,17 @@ public class Monster {
         // Jackson deserialization
     }
 
-    public Monster (String entityId, String monsterTypeId, Position position){
-        this.entityId = entityId;
-        this.monsterTypeId = monsterTypeId;
+    public Monster (String id, String typeId, Position position){
+        this.id = id;
+        this.typeId = typeId;
         this.position = position;
     }
 
     @Override
     public String toString() {
         return "Monster{" +
-                "monsterTypeId=" + monsterTypeId +
-                ", entitiyId=" + entityId +
+                "monsterTypeId=" + typeId +
+                ", entitiyId=" + id +
                 ", position=" + position +
                 '}';
     }

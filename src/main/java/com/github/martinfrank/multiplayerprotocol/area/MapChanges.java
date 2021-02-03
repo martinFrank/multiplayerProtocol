@@ -11,28 +11,27 @@ public class MapChanges {
     @JsonProperty
     public List<MonsterMovement> monsterMovements = new ArrayList<>();
 
+    @JsonProperty
+    public List<PlayerMovement> playerMovements = new ArrayList<>();
+
     public MapChanges() {
         // Jackson deserialization
     }
 
-
-//    //FIXME - this method should not belong to a model class - it should be in the areaserverclass
-//    public String createBroadCastMessage() {
-//        return "mapChanges: "+ Calendar.getInstance().get(Calendar.SECOND);
-//    }
-
-//    public void add(MonsterMovement monsterMovement) {
-//        monsterMovements.add(monsterMovement);
-//    }
-
     public boolean hasChanges() {
-        return !monsterMovements.isEmpty();
+        return !monsterMovements.isEmpty() || !playerMovements.isEmpty();
     }
 
     @Override
     public String toString() {
         return "MapChanges{" +
                 "monsterMovements=" + monsterMovements +
+                ", playerMovements=" + playerMovements +
                 '}';
+    }
+
+    public void clear() {
+        monsterMovements.clear();
+        playerMovements.clear();
     }
 }
