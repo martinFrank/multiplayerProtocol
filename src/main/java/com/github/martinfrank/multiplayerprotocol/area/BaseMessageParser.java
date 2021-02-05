@@ -70,8 +70,6 @@ public class BaseMessageParser implements MessageParser {
 
     }
 
-    //wurde durch AreaTotal ersetzt
-    @Deprecated
     public void handleMonsters(Monsters monsters){
 
     }

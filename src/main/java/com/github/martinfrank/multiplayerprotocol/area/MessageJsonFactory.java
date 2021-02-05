@@ -36,9 +36,20 @@ public class MessageJsonFactory {
             ObjectMapper mapper = new ObjectMapper();
             Message message = new Message(Player.class.getName(), mapper.writeValueAsString(player));
             return mapper.writeValueAsString(message);
-        }catch (JsonProcessingException e){
+        } catch (JsonProcessingException e) {
             LOGGER.error("error creating Json for Player {}: {}", player, e);
         }
         return "";
+    }
+
+    public static PlayerRegistration getPlayerRegistration(Message message) {
+        ObjectMapper mapper = new ObjectMapper();
+        try {
+            return mapper.readValue(message.jsonContent, PlayerRegistration.class);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        return null;
+
     }
 }
