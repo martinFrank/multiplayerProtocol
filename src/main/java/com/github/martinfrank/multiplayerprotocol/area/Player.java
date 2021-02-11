@@ -11,18 +11,30 @@ public class Player {
     @JsonProperty
     public Position position;
 
-    public Player (){
+    @JsonProperty
+    public boolean isEntering;
+
+    public Player() {
         // Jackson deserialization
     }
 
-    public Player(String id, Position position) {
+    public Player(String id, Position position, boolean isEntering) {
         this.id = id;
         this.position = position;
+        this.isEntering = isEntering;
     }
 
-    public Player(PlayerData playerData) {
-        this(playerData.id, playerData.position);
+    public Player(PlayerData playerData, boolean isEntering) {
+        this(playerData.id, playerData.position, isEntering);
 
+    }
+
+    public boolean isEntering() {
+        return isEntering;
+    }
+
+    public boolean isLeaving() {
+        return !isEntering;
     }
 
     @Override
@@ -30,6 +42,7 @@ public class Player {
         return "Player{" +
                 "id='" + id + '\'' +
                 ", position=" + position +
+                ", isEntering=" + isEntering +
                 '}';
     }
 

@@ -13,22 +13,35 @@ public class Monster {
     @JsonProperty
     public Position position;
 
-    public Monster (){
+    @JsonProperty
+    public boolean isEntering;
+
+    public Monster() {
         // Jackson deserialization
     }
 
-    public Monster (String id, String typeId, Position position){
+    public Monster(String id, String typeId, Position position, boolean isEntering) {
         this.id = id;
         this.typeId = typeId;
         this.position = position;
+        this.isEntering = isEntering;
+    }
+
+    public boolean isEntering() {
+        return isEntering;
+    }
+
+    public boolean isLeaving() {
+        return !isEntering;
     }
 
     @Override
     public String toString() {
         return "Monster{" +
-                "monsterTypeId=" + typeId +
-                ", entitiyId=" + id +
+                "typeId='" + typeId + '\'' +
+                ", id='" + id + '\'' +
                 ", position=" + position +
+                ", isEntering=" + isEntering +
                 '}';
     }
 
