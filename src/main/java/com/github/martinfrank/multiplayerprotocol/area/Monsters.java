@@ -10,18 +10,19 @@ public class Monsters {
     @JsonProperty
     public List<Monster> monsters = new ArrayList<>();
 
-    public Monsters(){
+    public Monsters() {
         // Jackson deserialization
     }
 
-//    public void add(Monster monster) {
-//        if(monsters == null){
-//            monsters = new ArrayList<>();
-//        }
-//        monsters.add(monster);
-//    }
 
     public List<Monster> getAll() {
         return monsters;
+    }
+
+    @Override
+    public String toString() {
+        return "Monsters{" +
+                "monsters=" + monsters +
+                '}';
     }
 }

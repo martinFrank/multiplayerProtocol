@@ -10,7 +10,7 @@ public class Players {
     @JsonProperty
     public List<Player> players = new ArrayList<>();
 
-    public Players(){
+    public Players() {
         // Jackson deserialization
     }
 
@@ -18,4 +18,10 @@ public class Players {
         return players.stream().filter(p -> p.id.equals(playerId)).findAny().orElse(null);
     }
 
+    @Override
+    public String toString() {
+        return "Players{" +
+                "players=" + players +
+                '}';
+    }
 }
