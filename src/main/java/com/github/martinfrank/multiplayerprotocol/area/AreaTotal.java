@@ -2,9 +2,6 @@ package com.github.martinfrank.multiplayerprotocol.area;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class AreaTotal {
 
     @JsonProperty
@@ -14,7 +11,7 @@ public class AreaTotal {
     public Players players;
 
 
-    public AreaTotal(){
+    public AreaTotal() {
         // Jackson deserialization
     }
 

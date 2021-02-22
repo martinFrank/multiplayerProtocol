@@ -13,24 +13,28 @@ public class PlayerMetaData {
     @JsonProperty
     public String playerAreaId;
 
+    @JsonProperty
+    public boolean online;
+
 
     public PlayerMetaData(){
         // Jackson deserialization
     }
 
-    public PlayerMetaData(String userId, String userName, String playerAreaId) {
+    public PlayerMetaData(String userId, String userName, String playerAreaId, boolean online) {
         this.userId = userId;
         this.userName = userName;
         this.playerAreaId = playerAreaId;
+        this.online = online;
     }
-
 
     @Override
     public String toString() {
         return "PlayerMetaData{" +
                 "userId='" + userId + '\'' +
                 ", userName='" + userName + '\'' +
-                ", playerArea='" + playerAreaId + '\'' +
+                ", playerAreaId='" + playerAreaId + '\'' +
+                ", online=" + online +
                 '}';
     }
 }

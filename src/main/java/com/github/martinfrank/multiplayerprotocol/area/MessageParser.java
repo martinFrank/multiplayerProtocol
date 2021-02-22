@@ -1,6 +1,9 @@
 package com.github.martinfrank.multiplayerprotocol.area;
 
-public interface MessageParser {
+import java.nio.channels.SelectionKey;
 
-    void parse(Message message);
+public interface MessageParser<T> {
+
+    void parse(Message<T> message);
+
 }

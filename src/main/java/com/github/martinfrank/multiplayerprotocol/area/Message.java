@@ -1,14 +1,18 @@
 package com.github.martinfrank.multiplayerprotocol.area;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Message {
+public class Message<T> {
 
     @JsonProperty
     public String className;
 
     @JsonProperty
     public String jsonContent;
+
+    @JsonIgnore
+    public T context;
 
     public Message(){
         // Jackson deserialization
@@ -25,5 +29,9 @@ public class Message {
                 "className='" + className + '\'' +
                 ", jsonContent='" + jsonContent + '\'' +
                 '}';
+    }
+
+    public T getContext() {
+        return context;
     }
 }
